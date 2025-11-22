@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三山五园文化艺术中心 - 基本展厅导览</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8C1515', // 深红色，象征皇家园林
+                        secondary: '#0F3460', // 深蓝色，代表水元素
+                        neutral: '#F5F5DC', // 米白色，模拟宣纸颜色
+                        dark: '#333333', // 深灰色，用于文本
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans SC', 'sans-serif'],
+                        serif: ['ZCOOL XiaoWei', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            }
+            .parallax {
+                background-attachment: fixed;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .animate-fade-in {
+                animation: fadeIn 1.5s ease-in-out;
+            }
+            .animate-slide-up {
+                animation: slideUp 1s ease-out;
+            }
+            .animate-pulse-slow {
+                animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+            }
+            .video-container {
+                position: relative;
+                width: 100%;
+                padding-top: 133.33%; /* 4:3 比例 */
+                overflow: hidden;
+                border-radius: 0.5rem;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            }
+            .video-container iframe {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                border: none;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body class="bg-neutral text-dark font-sans">
+    <!-- 导航栏 -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 bg-transparent">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="http://sswy.bjhdnet.com/sy/lbbanner/202304/W020230414642121788322.png" alt="三山五园标志" class="h-10 w-10 rounded-full mr-3">
+                <span class="text-xl font-serif text-white text-shadow">三山五园文化艺术中心</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#intro" class="text-white hover:text-primary transition-colors font-medium">展厅导览</a>
+                <a href="#exhibitions" class="text-white hover:text-primary transition-colors font-medium">展厅概览</a>
+                <a href="#experience" class="text-white hover:text-primary transition-colors font-medium">互动体验</a>
+                <a href="#visit" class="text-white hover:text-primary transition-colors font-medium">参观信息</a>
+            </div>
+            <button class="md:hidden text-white text-2xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="http://sswy.bjhdnet.com/sy/lbbanner/202304/W020230414642121788322.png" alt="三山五园全景" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-dark/60"></div>
+        </div>
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="text-[clamp(2.5rem,6vw,4.5rem)] font-serif text-white text-shadow mb-6 animate-fade-in">三山五园基本展厅</h1>
+            <p class="text-[clamp(1rem,3vw,1.5rem)] text-white text-shadow max-w-3xl mx-auto mb-10 animate-slide-up">
+                走进历史画卷，领略皇家园林的恢宏与典雅
+            </p>
+            <a href="#intro" class="inline-block bg-primary hover:bg-primary/80 text-white font-medium py-3 px-8 rounded-md transition-all transform hover:scale-105 animate-pulse-slow">
+                开始导览 <i class="fa fa-arrow-down ml-2"></i>
+            </a>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#intro" class="text-white text-3xl">
+                <i class="fa fa-angle-down"></i>
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <!-- 引言部分 -->
+        <section id="intro" class="py-40 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <div class="md:w-1/2 animate-fade-in">
+                        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-serif text-primary mb-6">走进三山五园</h2>
+                        <p class="text-lg mb-6 leading-relaxed">
+                            “三山五园”，即香山、玉泉山、万寿山，以及静宜园、静明园、颐和园、圆明园、畅春园。这片区域以其宏大的规模、精湛的建筑艺术和丰富的文化内涵蜚声海内外。
+                        </p>
+                        <p class="text-lg mb-6 leading-relaxed">
+                            三山五园文化艺术中心应运而生，给予观众“一览无余”的舒适与方便，让您可以全面了解三山五园的历史文脉和整体风貌。
+                        </p>
+                        <div class="grid grid-cols-3 gap-4 mt-8">
+                            <div class="text-center">
+                                <div class="text-4xl font-serif text-primary mb-2">3</div>
+                                <div class="text-sm">名山</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-4xl font-serif text-primary mb-2">5</div>
+                                <div class="text-sm">名园</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-4xl font-serif text-primary mb-2">千年</div>
+                                <div class="text-sm">历史</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 relative animate-slide-up">
+                      <iframe
+                        src="//player.bilibili.com/player.html?isOutside=true&aid=115507306957480&bvid=BV1yy2MB7EtD&cid=33784399085&p=1"
+                        scrolling="no"
+                        border="0"
+                        frameborder="no"
+                        framespacing="0"
+                        allowfullscreen="true"
+                        class="w-full h-auto rounded-lg shadow-xl"
+                        style="aspect-ratio: 16/9; max-width: 100%;"
+                      ></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 历史沿革 -->
+        <section class="py-20 bg-secondary/5">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-serif text-primary mb-4">历史沿革</h2>
+                    <p class="text-lg max-w-3xl mx-auto">三山五园的历史可追溯至辽金时期，历经元、明、清的营建与发展，见证了王朝的兴衰荣辱。</p>
+                </div>
+                
+                <div class="relative">
+                    <!-- 时间线 -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-primary/30"></div>
+                    
+                    <!-- 时间点1 -->
+                    <div class="relative z-10 mb-20 flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-8 md:mb-0">
+                            <h3 class="text-xl font-medium text-secondary mb-3">辽金时期（10-13世纪）</h3>
+                            <p>三山五园的营建始于辽金时期，当时的统治者在此修建了行宫和寺庙，开启了这片区域作为皇家园林的历史。</p>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                            <div class="w-6 h-6 rounded-full bg-white"></div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12 hidden md:block">
+                            <img src="https://s21.ax1x.com/2025/11/22/pZkEgCn.jpg" alt="辽金时期" class="rounded-lg shadow-md">
+                        </div>
+                    </div>
+                    
+                    <!-- 时间点2 -->
+                    <div class="relative z-10 mb-20 flex flex-col md:flex-row-reverse items-center">
+                        <div class="md:w-1/2 md:pl-12 md:text-left mb-8 md:mb-0">
+                            <h3 class="text-xl font-medium text-secondary mb-3">明清时期（14-20世纪）</h3>
+                            <p>明清两代是三山五园的鼎盛时期，多位皇帝在此大兴土木，修建了众多宫殿、园林和寺庙，形成了庞大的皇家园林集群。</p>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                            <div class="w-6 h-6 rounded-full bg-white"></div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12 hidden md:block">
+                            <img src="https://s21.ax1x.com/2025/11/22/pZkE23q.jpg" alt="明清时期" class="rounded-lg shadow-md">
+                        </div>
+                    </div>
+                    
+                    <!-- 时间点3 -->
+                    <div class="relative z-10 mb-20 flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right mb-8 md:mb-0">
+                            <h3 class="text-xl font-medium text-secondary mb-3">近现代（20世纪至今）</h3>
+                            <p>近现代以来，三山五园经历了战火和社会变革，但在政府和社会的保护下，逐渐恢复了往日的风采，并成为重要的文化遗产和旅游景点。</p>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+                            <div class="w-6 h-6 rounded-full bg-white"></div>
+                        </div>
+                        <div class="md:w-1/2 md:pl-12 hidden md:block">
+                            <img src="https://s21.ax1x.com/2025/11/22/pZkEWvV.jpg" alt="近现代" class="rounded-lg shadow-md">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 展厅概览 -->
+        <section id="exhibitions" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-serif text-primary mb-4">展厅概览</h2>
+                    <p class="text-lg max-w-3xl mx-auto">让我们一起探索三山五园基本展厅的各个区域，感受历史与艺术的交融。</p>
+                </div>
+                
+                <!-- 基本陈列展厅 -->
+                <div class="mb-20">
+                    <div class="flex flex-col md:flex-row gap-8 items-center">
+                        <div class="md:w-1/2">
+                            <!-- 第143行：图片改为视频 -->
+                            <div class="video-container">
+                                <iframe 
+                                    src="//player.bilibili.com/player.html?isOutside=true&aid=115592065516647&bvid=BV1xPUpBfEPr&cid=34179645849&p=1"
+                                    scrolling="no"
+                                    border="0"
+                                    frameborder="no"
+                                    framespacing="0"
+                                    allowfullscreen="true"
+                                    class="w-full h-auto rounded-lg shadow-xl"
+                                    style="aspect-ratio: 16/9; max-width: 100%;">
+                                </iframe>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2">
+                            <h3 class="text-2xl font-serif text-primary mb-4">基本陈列展厅</h3>
+                            <p class="text-lg mb-6 leading-relaxed">
+                                在这里，您可以看到丰富多样的展品，它们就像一把把钥匙，将为我们打开了解三山五园的大门。展厅里有详细的指示牌，您可以跟着指示牌走，不会错过每一处精彩。
+                            </p>
+                            <p class="text-lg mb-6 leading-relaxed">
+                                这段视频展现了三山五园盛景，画面中亭台楼阁错落有致，山水相依，尽显皇家园林的恢宏大气与精致典雅。每一帧画面，都仿佛在诉说着当年的繁华。
+                            </p>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-neutral p-4 rounded-lg">
+                                    <h4 class="font-medium mb-2">展出文物</h4>
+                                    <p class="text-sm">200+ 件珍贵文物</p>
+                                </div>
+                                <div class="bg-neutral p-4 rounded-lg">
+                                    <h4 class="font-medium mb-2">展厅面积</h4>
+                                    <p class="text-sm">800 平方米</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 研究空间 -->
+                <div class="mb-20">
+                    <div class="flex flex-col md:flex-row-reverse gap-8 items-center">
+                        <div class="md:w-1/2">
+                            <!-- 视频 -->
+                            <div class="video-container">
+                                <iframe 
+                                    src="//player.bilibili.com/player.html?isOutside=true&aid=115592082359585&bvid=BV12AUpB8EH1&cid=34179646421&p=1"
+                                    scrolling="no"
+                                    border="0"
+                                    frameborder="no"
+                                    framespacing="0"
+                                    allowfullscreen="true"
+                                    class="w-full h-auto rounded-lg shadow-xl"
+                                    style="aspect-ratio: 16/9; max-width: 100%;">
+                                </iframe>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2">
+                            <h3 class="text-2xl font-serif text-primary mb-4">研究空间</h3>
+                            <p class="text-lg mb-6 leading-relaxed">
+                                这里是文物的“医院”，专业的修复师们就像医术高超的医生，用他们的智慧和双手，让受损的文物重焕生机。视频中展示了修复师们的工作日常和精湛技艺。
+                            </p>
+                            <p class="text-lg mb-6 leading-relaxed">
+                                在这个空间里，您可以了解到文物修复的复杂过程和重要意义，感受到文物保护工作者们对历史文化的敬畏与坚守。
+                            </p>
+                            <div class="bg-secondary/10 p-6 rounded-lg">
+                                <h4 class="font-medium mb-3 flex items-center">
+                                    <i class="fa fa-lightbulb-o text-primary mr-2"></i> 互动体验
+                                </h4>
+                                <p class="text-sm">每天 10:00 和 14:00 有文物修复演示，您可以近距离观察修复师的工作。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 数字展厅 -->
+                <div class="mb-20">
+                    <div class="flex flex-col md:flex-row gap-8 items-center">
+						<div class="md:w-1/2">
+						    <div class="video-container">
+						        <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=115592082424924&bvid=BV1KAUpBhEy7&cid=34179646872&p=1" 
+                                    scrolling="no"
+                                    border="0"
+                                    frameborder="no"
+                                    framespacing="0"
+                                    allowfullscreen="true"
+                                    class="w-full h-auto rounded-lg shadow-xl"
+                                    style="aspect-ratio: 16/9; max-width: 100%;">
+						        </iframe>
+							</div>
+						</div>
+                        <div class="md:w-1/2">
+                            <h3 class="text-2xl font-serif text-primary mb-4">数字展厅</h3>
+                            <p class="text-lg mb-6 leading-relaxed">
+                                数字展厅里有两个独特的体验区，分别是沉浸式体验区和互动体验区。视频中展现了沉浸式体验的震撼效果，让您仿佛穿越时空，置身于三山五园的美景之中。
+                            </p>
+                            <p class="text-lg mb-6 leading-relaxed">
+                                360度的环绕影像，逼真的音效，让我们能全方位感受园林四季的变换，春日繁花似锦，夏日荷香阵阵，秋日红叶满山，冬日银装素裹。
+                            </p>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="bg-neutral p-4 rounded-lg">
+                                    <h4 class="font-medium mb-2">沉浸式体验区</h4>
+                                    <p class="text-sm">4K投影，环绕立体声</p>
+                                </div>
+                                <div class="bg-neutral p-4 rounded-lg">
+                                    <h4 class="font-medium mb-2">互动体验区</h4>
+                                    <p class="text-sm">触摸屏互动，虚拟建造</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 文化体验与消费区域 -->
+                <div class="mb-20">
+                    <div class="flex flex-col md:flex-row-reverse gap-8 items-center">
+                        <div class="md:w-1/2">
+                            <img src="https://s21.ax1x.com/2025/11/22/pZkERg0.jpg" alt="文化体验与消费区域" class="w-full h-auto rounded-lg shadow-xl">
+                        </div>
+                        <div class="md:w-1/2">
+                            <h3 class="text-2xl font-serif text-primary mb-4">文化体验与消费区域</h3>
+                            <p class="text-lg mb-6 leading-relaxed">
+                                在这里，您不仅可以购买到具有三山五园特色的文创产品，把这份文化记忆带回家，还能参与各种文化体验活动，比如传统的手工制作，像绘制扇面、制作香囊等，感受传统文化的魅力。
+                            </p>
+                            <p class="text-lg mb-6 leading-relaxed">
+                                这里还有饮食区，您可以坐下来，品尝一些美味的小吃，稍作休息。
+                            </p>
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="bg-neutral p-4 rounded-lg text-center">
+                                    <i class="fa fa-shopping-bag text-primary text-2xl mb-2"></i>
+                                    <h4 class="font-medium mb-1">文创商店</h4>
+                                    <p class="text-sm">200+ 特色商品</p>
+                                </div>
+                                <div class="bg-neutral p-4 rounded-lg text-center">
+                                    <i class="fa fa-paint-brush text-primary text-2xl mb-2"></i>
+                                    <h4 class="font-medium mb-1">体验工坊</h4>
+                                    <p class="text-sm">每日 4 场体验活动</p>
+                                </div>
+                                <div class="bg-neutral p-4 rounded-lg text-center">
+                                    <i class="fa fa-coffee text-primary text-2xl mb-2"></i>
+                                    <h4 class="font-medium mb-1">餐饮区</h4>
+                                    <p class="text-sm">传统宫廷小吃</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 室外空间 -->
+                <div>
+                    <div class="flex flex-col md:flex-row gap-8 items-center">
+                        <div class="md:w-1/2">
+                            <img src="https://picsum.photos/seed/exhibition5/600/400" alt="室外空间" class="w-full h-auto rounded-lg shadow-xl">
+                        </div>
+                        <div class="md:w-1/2">
+                            <h3 class="text-2xl font-serif text-primary mb-4">室外空间</h3>
+                            <p class="text-lg mb-6 leading-relaxed">
+                                当您步入室外空间，尘世喧嚣被远远隔绝，您尽可放松身心，尽情沉浸于大自然的温柔怀抱。这片土地承载着厚重的历史，千百年前，古人也曾悠然漫步于此。
+                            </p>
+                            <p class="text-lg mb-6 leading-relaxed">
+                                让我们放缓匆忙的步履，静下心来，细细品味这份历史与自然交织的独特韵味。每一寸空气，皆蕴往昔岁月余韵；每一缕微风，俱含自然清新馈赠。
+                            </p>
+                            <div class="bg-primary/10 p-6 rounded-lg">
+                                <h4 class="font-medium mb-3 flex items-center">
+                                    <i class="fa fa-leaf text-primary mr-2"></i> 景观亮点
+                                </h4>
+                                <ul class="list-disc pl-5 text-sm space-y-1">
+                                    <li>复建的清代园林景观</li>
+                                    <li>荷花池与曲径通幽的小径</li>
+                                    <li>古树名木与四季花卉</li>
+                                    <li>观景台可俯瞰三山五园全景</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 互动体验 -->
+        <section id="experience" class="py-20 bg-secondary/5">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-serif text-primary mb-4">互动体验</h2>
+                    <p class="text-lg max-w-3xl mx-auto">在三山五园基本展厅，我们为您准备了丰富的互动体验项目，让您更深入地了解这片皇家园林的魅力。</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- 互动项目1 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://s21.ax1x.com/2025/11/22/pZkE64s.jpg" alt="虚拟园林建造" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent flex items-end">
+                                <h3 class="text-xl font-medium text-white p-6">虚拟园林建造</h3>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="mb-4">体验古人造园的智慧与巧思，通过触摸屏设计自己的园林布局，感受传统造园艺术的精髓。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500">互动体验区</span>
+                                <span class="text-sm font-medium text-primary">时长: 20分钟</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 互动项目2 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://s21.ax1x.com/2025/11/22/pZkEyNj.jpg" alt="四季园林沉浸式体验" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent flex items-end">
+                                <h3 class="text-xl font-medium text-white p-6">四季园林沉浸式体验</h3>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="mb-4">360度环绕影像与立体声效，带您穿越时空，感受三山五园四季变换的美景与魅力。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500">沉浸式体验区</span>
+                                <span class="text-sm font-medium text-primary">时长: 15分钟</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 互动项目3 -->
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden group hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://s21.ax1x.com/2025/11/22/pZkEhuT.jpg" alt="传统手工艺体验" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark/70 to-transparent flex items-end">
+                                <h3 class="text-xl font-medium text-white p-6">传统手工艺体验</h3>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <p class="mb-4">亲手制作扇面、香囊等传统手工艺品，感受中国传统文化的魅力，带走独一无二的纪念品。</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm text-gray-500">文化体验区</span>
+                                <span class="text-sm font-medium text-primary">时长: 45分钟</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 视频展示区 - 保留原有的三个抖音视频 -->
+                <div class="mt-16 bg-white rounded-xl shadow-lg p-8">
+                    <h3 class="text-2xl font-serif text-primary mb-6 text-center">数字展厅宣传视频集</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- 第一个抖音视频 -->
+                        <div class="relative aspect-video bg-gray-200 rounded-lg overflow-hidden shadow-md">
+                            <iframe 
+                                src="https://v.douyin.com/xmRlY4WP7LU/" 
+                                frameborder="0" 
+                                allowfullscreen 
+                                class="w-full h-full"
+                                title="三山五园数字展厅视频1">
+                            </iframe>
+                        </div>
+                        
+                        <!-- 第二个抖音视频 -->
+                        <div class="relative aspect-video bg-gray-200 rounded-lg overflow-hidden shadow-md">
+                            <iframe 
+                                src="https://v.douyin.com/oaRdhH2lCvo/" 
+                                frameborder="0" 
+                                allowfullscreen 
+                                class="w-full h-full"
+                                title="三山五园数字展厅视频2">
+                            </iframe>
+                        </div>
+                        
+                        <!-- 第三个抖音视频 -->
+                        <div class="relative aspect-video bg-gray-200 rounded-lg overflow-hidden shadow-md">
+                            <iframe 
+                                src="https://v.douyin.com/dvxzPbMJFx4/" 
+                                frameborder="0" 
+                                allowfullscreen 
+                                class="w-full h-full"
+                                title="三山五园数字展厅视频3">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 参观信息 -->
+        <section id="visit" class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-serif text-primary mb-4">参观信息</h2>
+                    <p class="text-lg max-w-3xl mx-auto">欢迎您前来参观三山五园基本展厅，以下是您需要了解的参观信息。</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- 开放时间 -->
+                    <div class="bg-secondary/5 rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow">
+                        <div class="text-primary text-4xl mb-4">
+                            <i class="fa fa-clock-o"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-4">开放时间</h3>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between">
+                                <span>周二至周日</span>
+                                <span class="font-medium">09:00 - 17:00</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>周一</span>
+                                <span class="font-medium">闭馆（法定节假日除外）</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>法定节假日</span>
+                                <span class="font-medium">09:00 - 17:30</span>
+                            </li>
+                            <li class="pt-3 border-t border-gray-200">
+                                <p class="text-sm text-gray-600">* 最后入场时间为闭馆前60分钟</p>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 门票信息 -->
+                    <div class="bg-secondary/5 rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow">
+                        <div class="text-primary text-4xl mb-4">
+                            <i class="fa fa-ticket"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-4">门票信息</h3>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between">
+                                <span>成人票</span>
+                                <span class="font-medium">60元/人</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>学生票</span>
+                                <span class="font-medium">30元/人（凭学生证）</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span>老年票</span>
+                                <span class="font-medium">30元/人（65岁以上凭证）</span>
+                            </li>
+                            <li class="pt-3 border-t border-gray-200">
+                                <p class="text-sm text-gray-600">* 1.2米以下儿童、残疾人、军人免费入场</p>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 交通指南 -->
+                    <div class="bg-secondary/5 rounded-xl p-8 shadow-md hover:shadow-lg transition-shadow">
+                        <div class="text-primary text-4xl mb-4">
+                            <i class="fa fa-map-marker"></i>
+                        </div>
+                        <h3 class="text-xl font-medium mb-4">交通指南</h3>
+                        <ul class="space-y-3">
+                            <li>
+                                <h4 class="font-medium mb-1">地址</h4>
+                                <p>北京市海淀区颐和园路5号</p>
+                            </li>
+                            <li>
+                                <h4 class="font-medium mb-1">地铁</h4>
+                                <p>4号线西苑站C2口出，步行约10分钟</p>
+                            </li>
+                            <li>
+                                <h4 class="font-medium mb-1">公交</h4>
+                                <p>乘坐331、332、346、584、特10路到颐和园站下车</p>
+                            </li>
+                            <li>
+                                <h4 class="font-medium mb-1">自驾</h4>
+                                <p>园区设有停车场，收费标准：10元/小时</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 参观路线推荐 -->
+                <div class="mt-16 bg-primary/5 rounded-xl p-8">
+                    <h3 class="text-2xl font-serif text-primary mb-6">参观路线推荐</h3>
+                    <div class="relative">
+                        <!-- 时间线 -->
+                        <div class="absolute left-0 top-0 h-full w-1 bg-primary/30 ml-5"></div>
+                        
+                        <div class="space-y-8">
+                            <div class="flex">
+                                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white z-10 mr-4">
+                                    1
+                                </div>
+                                <div class="bg-white p-4 rounded-lg shadow-md">
+                                    <h4 class="font-medium text-lg">基本陈列展厅</h4>
+                                    <p class="text-sm text-gray-600">了解三山五园的历史背景和基本概况，欣赏珍贵文物和古画。</p>
+                                    <p class="text-xs mt-1">建议参观时间：60分钟</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white z-10 mr-4">
+                                    2
+                                </div>
+                                <div class="bg-white p-4 rounded-lg shadow-md">
+                                    <h4 class="font-medium text-lg">文物修复与研究空间</h4>
+                                    <p class="text-sm text-gray-600">观看文物修复演示，了解文物保护工作的重要性。</p>
+                                    <p class="text-xs mt-1">建议参观时间：30分钟</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white z-10 mr-4">
+                                    3
+                                </div>
+                                <div class="bg-white p-4 rounded-lg shadow-md">
+                                    <h4 class="font-medium text-lg">数字展厅</h4>
+                                    <p class="text-sm text-gray-600">体验沉浸式园林景观和互动游戏，感受科技与历史的融合。</p>
+                                    <p class="text-xs mt-1">建议参观时间：60分钟</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white z-10 mr-4">
+                                    4
+                                </div>
+                                <div class="bg-white p-4 rounded-lg shadow-md">
+                                    <h4 class="font-medium text-lg">文化体验与消费区域</h4>
+                                    <p class="text-sm text-gray-600">参与传统手工艺制作，选购特色文创产品，品尝宫廷小吃。</p>
+                                    <p class="text-xs mt-1">建议参观时间：60分钟</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white z-10 mr-4">
+                                    5
+                                </div>
+                                <div class="bg-white p-4 rounded-lg shadow-md">
+                                    <h4 class="font-medium text-lg">室外空间</h4>
+                                    <p class="text-sm text-gray-600">漫步于复建的清代园林景观中，欣赏荷花池与古树名木，在观景台俯瞰三山五园全景。</p>
+                                    <p class="text-xs mt-1">建议参观时间：45分钟</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <img src="http://sswy.bjhdnet.com/sy/lbbanner/202304/W020230414642121788322.png" alt="三山五园标志" class="h-10 w-10 rounded-full mr-3">
+                        <span class="text-xl font-serif">三山五园文化艺术中心</span>
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        传承历史文脉，展现园林艺术，让更多人了解三山五园的文化魅力。
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-medium mb-4">快速链接</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#intro" class="hover:text-primary transition-colors">展厅导览</a></li>
+                        <li><a href="#exhibitions" class="hover:text-primary transition-colors">展厅概览</a></li>
+                        <li><a href="#experience" class="hover:text-primary transition-colors">互动体验</a></li>
+                        <li><a href="#visit" class="hover:text-primary transition-colors">参观信息</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-medium mb-4">联系我们</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-center">
+                            <i class="fa fa-phone mr-2"></i>
+                            <span>010-12345678</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-envelope mr-2"></i>
+                            <span>sswy@example.com</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-map-marker mr-2"></i>
+                            <span>北京市海淀区颐和园路5号</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-medium mb-4">关注我们</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary/30 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fa fa-weixin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary/30 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-primary/30 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fa fa-douyin"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400 text-sm mt-4">扫码关注获取最新展览信息</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-500 text-sm">
+                <p>© 2025 三山五园文化艺术中心 版权所有 | 京ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-dark/90', 'shadow-lg');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.add('bg-transparent');
+                navbar.classList.remove('bg-dark/90', 'shadow-lg');
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 移动端菜单（简化版）
+        const menuBtn = document.querySelector('.md\\:hidden');
+        menuBtn.addEventListener('click', function() {
+            // 这里可以添加移动端菜单展开/收起逻辑
+            alert('移动端菜单功能将在后续完善');
+        });
+    </script>
+</body>
+</html>
